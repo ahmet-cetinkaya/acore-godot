@@ -1,0 +1,362 @@
+[gd_scene load_steps=24 format=3 uid="uid://cjls3l4vekvfo"]
+
+[ext_resource type="Script" path="res://lib/ACore/ACore.Player/Player.cs" id="1_4kspp"]
+[ext_resource type="Script" path="res://lib/ACore/ACore.Player/Interaction/PlayerInteraction.cs" id="2_sg3or"]
+[ext_resource type="Texture2D" uid="uid://c202wkq8r53y0" path="res://lib/ACore/ACore.Player/assets/images/dot-crosshair.png" id="3_rbt3g"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_725w1"]
+points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607, 0.498884, 0.169713, 0.559144, 0.464172, 0.231051, -0.803591, 0.320455, 0.40741, 0.651043, -0.243523, -0.482789, 0.594843, 0.0822132, -0.362868, -0.682312, 0.289697, 0.469044, -0.654529, -0.0662713, -0.127444, 0.842701, -0.338103, -0.393435, -0.683942, -0.244717, 0.438255, 0.623309, 0.200849, 0.0841477, 0.977454, 0.114795, -0.0682023, -0.976458, -0.12927, 0.20055, -0.563129, -0.451454, -0.185527, 0.595453, -0.453475, -0.273363, 0.592268, 0.407754, -0.00693649, -0.476823, 0.49966, 0.375821, -0.588614, 0.316955, 0.111579, 0.563059, -0.481177, -0.41725, 0.527866, -0.270497, -0.484546, -0.596972, -0.0665097, -0.279747, 0.908561, 0.0533361, -0.250197, -0.880712, 0.205319, 0.263647, -0.902771, -0.127394, 0.293368, 0.871526, -0.157196, 0.373412, -0.526319, -0.328246, 0.499663, 0.476641, -0.00688856, 0.0531056, 0.875001, 0.324703, -0.154543, -0.590854, 0.465879, -0.0972799, -0.782358, -0.398188, -0.387649, -0.498171, 0.31565, -0.30068, -0.587995, -0.388901)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_swuth"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8dcp7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yfi74"]
+radius = 0.4
+
+[sub_resource type="Animation" id="Animation_nghqt"]
+resource_name = "LeanLeft"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Lean/LeanPivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.8, -0.2, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Lean/LeanPivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.261799)]
+}
+
+[sub_resource type="Animation" id="Animation_n7uq5"]
+resource_name = "LeanLeftCollisionAnimation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Lean/LeanPivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.015, -0.005, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Lean/LeanPivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.0872665)]
+}
+
+[sub_resource type="Animation" id="Animation_3kwal"]
+resource_name = "LeanReset"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Lean/LeanPivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Lean/LeanPivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ntb6g"]
+resource_name = "LeanRight"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Lean/LeanPivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.8, -0.2, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Lean/LeanPivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.261799)]
+}
+
+[sub_resource type="Animation" id="Animation_8ssa3"]
+resource_name = "LeanRightCollisionAnimation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Lean/LeanPivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.015, -0.005, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Lean/LeanPivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.0872665)]
+}
+
+[sub_resource type="Animation" id="Animation_p8h6n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Lean/LeanPivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Lean/LeanPivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_itqn7"]
+_data = {
+"LeanLeft": SubResource("Animation_nghqt"),
+"LeanLeftCollisionAnimation": SubResource("Animation_n7uq5"),
+"LeanReset": SubResource("Animation_3kwal"),
+"LeanRight": SubResource("Animation_ntb6g"),
+"LeanRightCollisionAnimation": SubResource("Animation_8ssa3"),
+"RESET": SubResource("Animation_p8h6n")
+}
+
+[sub_resource type="AnimationNodeBlend3" id="AnimationNodeBlend3_3ne2n"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q53e0"]
+animation = &"LeanLeft"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0d51h"]
+animation = &"LeanLeftCollisionAnimation"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_ginqx"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_81w61"]
+animation = &"LeanReset"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hjd2w"]
+animation = &"LeanRight"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4ovv8"]
+animation = &"LeanRightCollisionAnimation"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_4ep62"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_bhai3"]
+graph_offset = Vector2(-68.0955, 444.676)
+nodes/LeanBlend/node = SubResource("AnimationNodeBlend3_3ne2n")
+nodes/LeanBlend/position = Vector2(1060, 800)
+nodes/LeanLeft/node = SubResource("AnimationNodeAnimation_q53e0")
+nodes/LeanLeft/position = Vector2(280, 720)
+nodes/LeanLeftCollisionAnimation/node = SubResource("AnimationNodeAnimation_0d51h")
+nodes/LeanLeftCollisionAnimation/position = Vector2(160, 860)
+nodes/LeanLeftCollisionBlend/node = SubResource("AnimationNodeBlend2_ginqx")
+nodes/LeanLeftCollisionBlend/position = Vector2(520, 680)
+nodes/LeanReset/node = SubResource("AnimationNodeAnimation_81w61")
+nodes/LeanReset/position = Vector2(780, 860)
+nodes/LeanRight/node = SubResource("AnimationNodeAnimation_hjd2w")
+nodes/LeanRight/position = Vector2(260, 1040)
+nodes/LeanRightCollisionAnimation/node = SubResource("AnimationNodeAnimation_4ovv8")
+nodes/LeanRightCollisionAnimation/position = Vector2(140, 1180)
+nodes/LeanRightCollisionBlend/node = SubResource("AnimationNodeBlend2_4ep62")
+nodes/LeanRightCollisionBlend/position = Vector2(520, 1000)
+nodes/output/position = Vector2(1260, 820)
+node_connections = [&"LeanBlend", 0, &"LeanLeftCollisionBlend", &"LeanBlend", 1, &"LeanReset", &"LeanBlend", 2, &"LeanRightCollisionBlend", &"LeanLeftCollisionBlend", 0, &"LeanLeft", &"LeanLeftCollisionBlend", 1, &"LeanLeftCollisionAnimation", &"LeanRightCollisionBlend", 0, &"LeanRight", &"LeanRightCollisionBlend", 1, &"LeanRightCollisionAnimation", &"output", 0, &"LeanBlend"]
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("GrabbingJoint", "_grabbingTwoHandMarker", "_grabbingTwoHandStaticBody", "_grabbingInteractionRayCast", "_body", "_model", "_leanPivotHead", "_camera", "_standingCollision", "_crouchingCollision", "_crouchingHeadRayCast", "_leanPivotLeftShapeCast", "_leanPivotRightShapeCast", "_leanPivot", "AnimationTree")]
+script = ExtResource("1_4kspp")
+GrabbingJoint = NodePath("Body/Lean/LeanPivot/LeanPivotHead/Camera/Grabbing/GrabbingGeneric6DOFJoint3D")
+_grabbingTwoHandMarker = NodePath("Body/Lean/LeanPivot/LeanPivotHead/Camera/Grabbing/GrabbingTwoHandMarker")
+_grabbingTwoHandStaticBody = NodePath("Body/Lean/LeanPivot/LeanPivotHead/Camera/Grabbing/GrabbingStaticBody3D")
+_grabbingInteractionRayCast = NodePath("Body/Lean/LeanPivot/LeanPivotHead/Camera/Interaction/InteractionRayCast")
+_body = NodePath("Body")
+_model = NodePath("Body/Lean/LeanPivot/LeanPivotBody/Model")
+_leanPivotHead = NodePath("Body/Lean/LeanPivot/LeanPivotHead")
+_camera = NodePath("Body/Lean/LeanPivot/LeanPivotHead/Camera")
+_standingCollision = NodePath("Collision")
+_crouchingCollision = NodePath("Movement_CrouchingCollision")
+_crouchingHeadRayCast = NodePath("Body/Head/Movement/Movement_CrouchingHeadRayCast")
+_leanPivotLeftShapeCast = NodePath("Body/Lean/Lean_PivotLeftShapeCast")
+_leanPivotRightShapeCast = NodePath("Body/Lean/Lean_PivotRightShapeCast")
+_leanPivot = NodePath("Body/Lean/LeanPivot")
+AnimationTree = NodePath("AnimationTree")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_725w1")
+
+[node name="Movement_CrouchingCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.484191, 0.005)
+shape = SubResource("SphereShape3D_swuth")
+
+[node name="Body" type="Node3D" parent="."]
+
+[node name="Head" type="Node3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Movement" type="Node3D" parent="Body/Head"]
+
+[node name="Movement_CrouchingHeadRayCast" type="RayCast3D" parent="Body/Head/Movement"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, -0.5, 0)
+target_position = Vector3(0, 1, 0)
+
+[node name="Lean" type="Node3D" parent="Body"]
+
+[node name="LeanPivot" type="Node3D" parent="Body/Lean"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="LeanPivotHead" type="Node3D" parent="Body/Lean/LeanPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Camera" type="Camera3D" parent="Body/Lean/LeanPivot/LeanPivotHead"]
+
+[node name="Grabbing" type="Node3D" parent="Body/Lean/LeanPivot/LeanPivotHead/Camera"]
+
+[node name="GrabbingTwoHandMarker" type="Marker3D" parent="Body/Lean/LeanPivot/LeanPivotHead/Camera/Grabbing"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="GrabbingGeneric6DOFJoint3D" type="Generic6DOFJoint3D" parent="Body/Lean/LeanPivot/LeanPivotHead/Camera/Grabbing"]
+node_a = NodePath("../GrabbingStaticBody3D")
+linear_limit_x/enabled = false
+linear_limit_y/enabled = false
+linear_limit_z/enabled = false
+
+[node name="GrabbingStaticBody3D" type="StaticBody3D" parent="Body/Lean/LeanPivot/LeanPivotHead/Camera/Grabbing"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.99805)
+collision_layer = 0
+collision_mask = 0
+
+[node name="Interaction" type="Node3D" parent="Body/Lean/LeanPivot/LeanPivotHead/Camera"]
+
+[node name="InteractionRayCast" type="RayCast3D" parent="Body/Lean/LeanPivot/LeanPivotHead/Camera/Interaction" node_paths=PackedStringArray("Exceptions", "Prompt")]
+transform = Transform3D(1.16, 0, 0, 0, 1.16, 0, 0, 0, 0.5, 0, 0, 0)
+target_position = Vector3(0, 0, -4)
+script = ExtResource("2_sg3or")
+Exceptions = []
+Prompt = NodePath("InteractionPrompt")
+
+[node name="InteractionPrompt" type="Label" parent="Body/Lean/LeanPivot/LeanPivotHead/Camera/Interaction/InteractionRayCast"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -24.5
+offset_right = 67.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Message
+[Key]"
+horizontal_alignment = 1
+
+[node name="LeanPivotBody" type="Node3D" parent="Body/Lean/LeanPivot"]
+visible = false
+
+[node name="Model" type="MeshInstance3D" parent="Body/Lean/LeanPivot/LeanPivotBody"]
+mesh = SubResource("CapsuleMesh_8dcp7")
+skeleton = NodePath("../../../../..")
+
+[node name="Lean_PivotLeftShapeCast" type="ShapeCast3D" parent="Body/Lean"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, -2, 0.5, 0)
+shape = SubResource("SphereShape3D_yfi74")
+target_position = Vector3(1, 0, 0)
+collision_mask = 2
+
+[node name="Lean_PivotRightShapeCast" type="ShapeCast3D" parent="Body/Lean"]
+transform = Transform3D(-0.999999, 0, -8.74228e-08, 0, 0.999999, 0, 8.74227e-08, 0, -1, 2, 0.5, 0)
+shape = SubResource("SphereShape3D_yfi74")
+target_position = Vector3(1, 0, 0)
+collision_mask = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_itqn7")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendTree_bhai3")
+anim_player = NodePath("../AnimationPlayer")
+parameters/LeanBlend/blend_amount = 0.0
+parameters/LeanLeftCollisionBlend/blend_amount = 0.0
+parameters/LeanRightCollisionBlend/blend_amount = 0.0
+
+[node name="Crosshair" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_rbt3g")
+expand_mode = 1
