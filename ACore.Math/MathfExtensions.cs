@@ -1,6 +1,6 @@
 ﻿using Godot;
 
-namespace ACore.Game.Math;
+namespace ACore.Math;
 
 public class MathfExtensions
 {
