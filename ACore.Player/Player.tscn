@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=3 uid="uid://cjls3l4vekvfo"]
 
-[ext_resource type="Script" path="res://lib/ACore/ACore.Player/Player.cs" id="1_4kspp"]
-[ext_resource type="Script" path="res://lib/ACore/ACore.Player/Interaction/PlayerInteraction.cs" id="2_sg3or"]
+[ext_resource type="Script" uid="uid://sge1wp2lhu6a" path="res://lib/ACore/ACore.Player/Player.cs" id="1_4kspp"]
+[ext_resource type="Script" uid="uid://drbbb1kr53xj3" path="res://lib/ACore/ACore.Player/Interaction/PlayerInteraction.cs" id="2_sg3or"]
 [ext_resource type="Texture2D" uid="uid://c202wkq8r53y0" path="res://lib/ACore/ACore.Player/assets/images/dot-crosshair.png" id="3_rbt3g"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_725w1"]
@@ -178,12 +178,12 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_itqn7"]
 _data = {
-"LeanLeft": SubResource("Animation_nghqt"),
-"LeanLeftCollisionAnimation": SubResource("Animation_n7uq5"),
-"LeanReset": SubResource("Animation_3kwal"),
-"LeanRight": SubResource("Animation_ntb6g"),
-"LeanRightCollisionAnimation": SubResource("Animation_8ssa3"),
-"RESET": SubResource("Animation_p8h6n")
+&"LeanLeft": SubResource("Animation_nghqt"),
+&"LeanLeftCollisionAnimation": SubResource("Animation_n7uq5"),
+&"LeanReset": SubResource("Animation_3kwal"),
+&"LeanRight": SubResource("Animation_ntb6g"),
+&"LeanRightCollisionAnimation": SubResource("Animation_8ssa3"),
+&"RESET": SubResource("Animation_p8h6n")
 }
 
 [sub_resource type="AnimationNodeBlend3" id="AnimationNodeBlend3_3ne2n"]
