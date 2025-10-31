@@ -1,6 +1,6 @@
+using ACore.Math;
 using ACore.Player.Movement.constants;
 using Godot;
-using ACore.Math;
 
 namespace ACore.Player;
 
