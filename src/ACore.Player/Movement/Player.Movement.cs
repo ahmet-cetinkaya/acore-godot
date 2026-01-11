@@ -8,19 +8,19 @@ public partial class Player : CharacterBody3D
 {
     [Export]
     [ExportGroup("Movement")]
-    private Node3D _body;
+    private Node3D? _body;
 
     [Export]
     [ExportGroup("Movement")]
-    private Node3D _model;
+    private Node3D? _model;
 
     [Export]
     [ExportGroup("Movement")]
-    private Node3D _leanPivotHead;
+    private Node3D? _leanPivotHead;
 
     [Export]
     [ExportGroup("Movement")]
-    private Camera3D _camera;
+    private Camera3D? _camera;
 
     [Export]
     [ExportGroup("Movement")]
@@ -51,15 +51,15 @@ public partial class Player : CharacterBody3D
 
     [ExportSubgroup("Crouching")]
     [Export]
-    private CollisionShape3D _standingCollision;
+    private CollisionShape3D? _standingCollision;
 
     [ExportSubgroup("Crouching")]
     [Export]
-    private CollisionShape3D _crouchingCollision;
+    private CollisionShape3D? _crouchingCollision;
 
     [ExportSubgroup("Crouching")]
     [Export]
-    private RayCast3D _crouchingHeadRayCast;
+    private RayCast3D? _crouchingHeadRayCast;
 
     [ExportSubgroup("Crouching")]
     [Export]
@@ -108,7 +108,7 @@ public partial class Player : CharacterBody3D
 
         _direction = MathfExtensions.Lerp(
             _direction,
-            (_body.Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized(),
+            (_body!.Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized(),
             LerpSpeed * (float)delta
         );
 
@@ -141,9 +141,9 @@ public partial class Player : CharacterBody3D
 
     private void look(InputEventMouseMotion @event)
     {
-        _body.RotateY(Mathf.DegToRad(-@event.Relative.X * MouseSensitivity));
-        _camera.RotateX(Mathf.DegToRad(-@event.Relative.Y * MouseSensitivity));
-        _camera.Rotation = new Vector3(
+        _body!.RotateY(Mathf.DegToRad(-@event.Relative.X * MouseSensitivity));
+        _camera!.RotateX(Mathf.DegToRad(-@event.Relative.Y * MouseSensitivity));
+        _camera!.Rotation = new Vector3(
             Mathf.Clamp(_camera.Rotation.X, Mathf.DegToRad(-89), Mathf.DegToRad(89)),
             _camera.Rotation.Y,
             _camera.Rotation.Z
@@ -179,18 +179,18 @@ public partial class Player : CharacterBody3D
 
     private void stand(double delta)
     {
-        if (_crouchingHeadRayCast.IsColliding())
+        if (_crouchingHeadRayCast!.IsColliding())
             return;
 
         _isCrouching = false;
 
-        _leanPivotHead.Position = MathfExtensions.Lerp(
+        _leanPivotHead!.Position = MathfExtensions.Lerp(
             _leanPivotHead.Position,
             new Vector3(_leanPivotHead.Position.X, 0, _leanPivotHead.Position.Z),
             LerpSpeed * (float)delta
         );
-        _standingCollision.Disabled = false;
-        _crouchingCollision.Disabled = true;
+        _standingCollision!.Disabled = false;
+        _crouchingCollision!.Disabled = true;
     }
 
     private void crouch(double delta)
@@ -199,12 +199,12 @@ public partial class Player : CharacterBody3D
 
         _currentSpeed = CrouchingSpeed;
 
-        _leanPivotHead.Position = MathfExtensions.Lerp(
+        _leanPivotHead!.Position = MathfExtensions.Lerp(
             _leanPivotHead.Position,
             new Vector3(_leanPivotHead.Position.X, CrouchDepth, _leanPivotHead.Position.Z),
             LerpSpeed * (float)delta
         );
-        _standingCollision.Disabled = true;
-        _crouchingCollision.Disabled = false;
+        _standingCollision!.Disabled = true;
+        _crouchingCollision!.Disabled = false;
     }
 }

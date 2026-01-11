@@ -5,7 +5,7 @@ namespace ACore.Player;
 public partial class Player : CharacterBody3D
 {
     [Export]
-    public AnimationTree AnimationTree { get; set; }
+    public AnimationTree? AnimationTree { get; set; }
 
     public override void _UnhandledInput(InputEvent @event)
     {

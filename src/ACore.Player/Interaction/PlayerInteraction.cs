@@ -7,13 +7,13 @@ namespace ACore.Player;
 public partial class PlayerInteraction : RayCast3D
 {
     [Export]
-    public CollisionObject3D[] Exceptions { get; set; }
+    public CollisionObject3D[] Exceptions { get; set; } = System.Array.Empty<CollisionObject3D>();
 
     [Export]
-    public Label Prompt { get; set; }
+    public Label? Prompt { get; set; }
 
     [Export]
-    private RayCast3D _interactionRayCast;
+    private RayCast3D? _interactionRayCast;
 
     public override void _Ready()
     {
@@ -33,7 +33,7 @@ public partial class PlayerInteraction : RayCast3D
 
     private void handleInteraction()
     {
-        if (!string.IsNullOrWhiteSpace(Prompt.Text))
+        if (Prompt != null && !string.IsNullOrWhiteSpace(Prompt.Text))
             Prompt.Text = string.Empty;
 
         if (!IsColliding())
@@ -42,7 +42,7 @@ public partial class PlayerInteraction : RayCast3D
         if (@object is not IIntractable intractable)
             return;
 
-        if (Prompt.Text != intractable.PromptMessage)
+        if (Prompt != null && Prompt.Text != intractable.PromptMessage)
             Prompt.Text = intractable.PromptMessage;
         if (Input.IsActionJustPressed(InteractionInputControls.Interact))
             intractable.OnInteract(@object);

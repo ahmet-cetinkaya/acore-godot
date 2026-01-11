@@ -11,15 +11,15 @@ public partial class Player : CharacterBody3D
 
     [Export]
     [ExportGroup("Grabbing")]
-    protected Generic6DofJoint3D GrabbingJoint { get; set; }
+    protected Generic6DofJoint3D? GrabbingJoint { get; set; }
 
     [Export]
     [ExportGroup("Grabbing")]
-    protected Marker3D _grabbingTwoHandMarker;
+    protected Marker3D? _grabbingTwoHandMarker;
 
     [Export]
     [ExportGroup("Grabbing")]
-    protected StaticBody3D _grabbingTwoHandStaticBody;
+    protected StaticBody3D? _grabbingTwoHandStaticBody;
 
     [Export]
     [ExportGroup("Grabbing")]
@@ -31,9 +31,9 @@ public partial class Player : CharacterBody3D
 
     [Export]
     [ExportGroup("Grabbing")]
-    protected RayCast3D _grabbingInteractionRayCast;
+    protected RayCast3D? _grabbingInteractionRayCast;
 
-    protected RigidBody3D _grabbedObject;
+    protected RigidBody3D? _grabbedObject;
 
     private void handleGrabbingUnhandledInputs(InputEvent @event)
     {
@@ -83,21 +83,21 @@ public partial class Player : CharacterBody3D
         if (_grabbedObject != null)
         {
             Vector3 a = _grabbedObject.GlobalTransform.Origin;
-            Vector3 b = _grabbingTwoHandMarker.GlobalTransform.Origin;
+            Vector3 b = _grabbingTwoHandMarker!.GlobalTransform.Origin;
             _grabbedObject.LinearVelocity = (b - a) * _grabbingPullPower;
         }
     }
 
     private void pickupObjectForGrabbing()
     {
-        GodotObject collider = _grabbingInteractionRayCast.GetCollider();
+        GodotObject collider = _grabbingInteractionRayCast!.GetCollider();
         if (collider == null)
             return;
         if (collider is not RigidBody3D objectRigidBody)
             return;
 
         _grabbedObject = objectRigidBody;
-        GrabbingJoint.NodeB = _grabbedObject.GetPath();
+        GrabbingJoint!.NodeB = _grabbedObject.GetPath();
     }
 
     private void dropObjectFromGrabbing()
@@ -106,7 +106,7 @@ public partial class Player : CharacterBody3D
             return;
 
         _grabbedObject = null;
-        GrabbingJoint.NodeB = GrabbingJoint.GetPath();
+        GrabbingJoint!.NodeB = GrabbingJoint.GetPath();
     }
 
     private void rotateObject(InputEventMouseMotion @event)
@@ -114,7 +114,7 @@ public partial class Player : CharacterBody3D
         if (_grabbedObject == null)
             return;
 
-        _grabbingTwoHandStaticBody.RotateX(
+        _grabbingTwoHandStaticBody!.RotateX(
             Mathf.DegToRad(@event.Relative.Y * _grabbingRotationPower)
         );
         _grabbingTwoHandStaticBody.RotateY(

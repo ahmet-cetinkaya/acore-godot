@@ -15,18 +15,18 @@ public partial class Player : CharacterBody3D
 
     [Export]
     [ExportGroup("Movement/Lean")]
-    private ShapeCast3D _leanPivotLeftShapeCast { get; set; }
+    private ShapeCast3D? _leanPivotLeftShapeCast { get; set; }
 
     [Export]
     [ExportGroup("Movement/Lean")]
-    private ShapeCast3D _leanPivotRightShapeCast { get; set; }
+    private ShapeCast3D? _leanPivotRightShapeCast { get; set; }
 
     [Export]
     [ExportGroup("Movement/Lean")]
-    private Node3D _leanPivot;
+    private Node3D? _leanPivot;
 
-    private Tween _leanBlendTween;
-    private Tween _leanBlendCollisionTween;
+    private Tween? _leanBlendTween;
+    private Tween? _leanBlendCollisionTween;
 
     private const string LEAN_BLEND_AMOUNT_PROPERTY = "parameters/LeanBlend/blend_amount";
     private const string LEAN_BLEND_LEFT_COLLISION_AMOUNT_PROPERTY =
@@ -51,14 +51,14 @@ public partial class Player : CharacterBody3D
                 leanX = -1;
 
                 _leanBlendCollisionTween?.Kill();
-                leanBlendCollisionValue = _leanPivotLeftShapeCast.IsColliding() ? 1 : 0;
-                _leanBlendCollisionTween = AnimationTree
+                leanBlendCollisionValue = _leanPivotLeftShapeCast!.IsColliding() ? 1 : 0;
+                _leanBlendCollisionTween = AnimationTree!
                     .GetTree()
                     .CreateTween()
                     .SetEase(Tween.EaseType.Out)
                     .SetTrans(Tween.TransitionType.Back);
                 _ = _leanBlendCollisionTween.TweenProperty(
-                    AnimationTree,
+                    AnimationTree!,
                     LEAN_BLEND_LEFT_COLLISION_AMOUNT_PROPERTY,
                     leanBlendCollisionValue,
                     LeaningDuration
@@ -69,14 +69,14 @@ public partial class Player : CharacterBody3D
                 leanX = 1;
 
                 _leanBlendCollisionTween?.Kill();
-                leanBlendCollisionValue = _leanPivotRightShapeCast.IsColliding() ? 1 : 0;
-                _leanBlendCollisionTween = AnimationTree
+                leanBlendCollisionValue = _leanPivotRightShapeCast!.IsColliding() ? 1 : 0;
+                _leanBlendCollisionTween = AnimationTree!
                     .GetTree()
                     .CreateTween()
                     .SetEase(Tween.EaseType.Out)
                     .SetTrans(Tween.TransitionType.Back);
                 _ = _leanBlendCollisionTween.TweenProperty(
-                    AnimationTree,
+                    AnimationTree!,
                     LEAN_BLEND_RIGHT_COLLISION_AMOUNT_PROPERTY,
                     leanBlendCollisionValue,
                     LeaningDuration
@@ -84,13 +84,13 @@ public partial class Player : CharacterBody3D
             }
         }
 
-        _leanBlendTween = AnimationTree
+        _leanBlendTween = AnimationTree!
             .GetTree()
             .CreateTween()
             .SetEase(Tween.EaseType.Out)
             .SetTrans(Tween.TransitionType.Back);
         _ = _leanBlendTween.TweenProperty(
-            AnimationTree,
+            AnimationTree!,
             LEAN_BLEND_AMOUNT_PROPERTY,
             leanX,
             LeaningDuration
