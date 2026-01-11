@@ -413,3 +413,8 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# AI Agents
+.serena/
+CLAUDE.md
+PROJECT_INDEX.md

@@ -1,0 +1,17 @@
+{
+  "sdk": {
+    "version": "8.0.401",
+    "rollForward": "latestPatch"
+  },
+  "scriptShell": "bash",
+  "scripts": {
+    "build": "dotnet build ACoreGodot.sln",
+    "clean": "dotnet clean ACoreGodot.sln",
+    "rebuild": "dotnet clean ACoreGodot.sln && dotnet build ACoreGodot.sln",
+    "test": "dotnet test ACoreGodot.sln",
+    "format": "bash scripts/format.sh",
+    "godot": "godot",
+    "godot:editor": "godot --editor",
+    "godot:run": "godot --path ."
+  }
+}
