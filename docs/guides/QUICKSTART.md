@@ -8,21 +8,21 @@ This guide will help you get started with acore-godot in your project.
 
 1. Navigate to your Godot project:
 
-   ```bash
-   cd your-godot-project
-   ```
+    ```bash
+    cd your-godot-project
+    ```
 
 2. Add the submodule:
 
-   ```bash
-   git submodule add https://github.com/ahmet-cetinkaya/acore-godot.git addons/ACore
-   ```
+    ```bash
+    git submodule add https://github.com/ahmet-cetinkaya/acore-godot.git addons/ACore
+    ```
 
 3. Initialize and update:
 
-   ```bash
-   git submodule update --init --recursive
-   ```
+    ```bash
+    git submodule update --init --recursive
+    ```
 
 ### Manual Installation
 
@@ -44,23 +44,25 @@ This guide will help you get started with acore-godot in your project.
 Add the following input actions in **Project → Project Settings → Input Map**:
 
 #### Movement
-| Action Name | Key/Button |
-|-------------|------------|
-| `move_forward` | W, Arrow Up |
-| `move_backward` | S, Arrow Down |
-| `move_left` | A, Arrow Left |
-| `move_right` | D, Arrow Right |
-| `sprint` | Shift |
-| `crouch` | Ctrl |
-| `jump` | Space |
-| `lean_left` | Q |
-| `lean_right` | E |
+
+| Action Name     | Key/Button     |
+| --------------- | -------------- |
+| `move_forward`  | W, Arrow Up    |
+| `move_backward` | S, Arrow Down  |
+| `move_left`     | A, Arrow Left  |
+| `move_right`    | D, Arrow Right |
+| `sprint`        | Shift          |
+| `crouch`        | Ctrl           |
+| `jump`          | Space          |
+| `lean_left`     | Q              |
+| `lean_right`    | E              |
 
 #### Interaction
-| Action Name | Key/Button |
-|-------------|------------|
-| `interact` | E |
-| `grab` | Left Mouse Button |
+
+| Action Name    | Key/Button         |
+| -------------- | ------------------ |
+| `interact`     | E                  |
+| `grab`         | Left Mouse Button  |
 | `rotate_click` | Right Mouse Button |
 
 ## Using the Player
@@ -78,6 +80,7 @@ Add the following input actions in **Project → Project Settings → Input Map*
 Select the Player node in your scene and adjust properties in the Inspector:
 
 **Movement:**
+
 - `Walking Speed`: 5.0 (default)
 - `Sprinting Speed`: 7.5 (default)
 - `Crouching Speed`: 2.5 (default)
@@ -85,10 +88,12 @@ Select the Player node in your scene and adjust properties in the Inspector:
 - `Mouse Sensitivity`: 0.1 (default)
 
 **Lean:**
+
 - `Lean Enabled`: true (default)
 - `Leaning Duration`: 1.0 (default)
 
 **Grabbing:**
+
 - `Grabbing Enabled`: true (default)
 - `Grabbing Pull Power`: 4.0 (default)
 - `Grabbing Rotation Power`: 0.05 (default)
@@ -97,21 +102,21 @@ Select the Player node in your scene and adjust properties in the Inspector:
 
 1. Create a new script for your object:
 
-   ```csharp
-   using ACore.Player.Interaction.abstraction;
-   using Godot;
+    ```csharp
+    using ACore.Player.Interaction.abstraction;
+    using Godot;
 
-   public partial class MyInteractable : Node3D, IIntractable
-   {
-       public string PromptMessage { get; protected set; } = "Press E to use";
+    public partial class MyInteractable : Node3D, IIntractable
+    {
+        public string PromptMessage { get; protected set; } = "Press E to use";
 
-       public void OnInteract(GodotObject @object)
-       {
-           GD.Print("Interacted!");
-           // Your interaction logic here
-       }
-   }
-   ```
+        public void OnInteract(GodotObject @object)
+        {
+            GD.Print("Interacted!");
+            // Your interaction logic here
+        }
+    }
+    ```
 
 2. Attach the script to any `Node3D` in your scene
 3. Add a `CollisionShape3D` to make it detectable
@@ -145,8 +150,8 @@ Use the included grid textures for prototyping and alignment:
 2. Add a plane mesh or grid mesh
 3. Create a new `StandardMaterial3D`
 4. Set **Albedo Texture** to one of:
-   - `addons/ACore/ACore.Dev/Textures/Grids/Dark/texture_07.png`
-   - `addons/ACore/ACore.Dev/Textures/Grids/Orange/texture_05.png`
+    - `addons/ACore/ACore.Dev/Textures/Grids/Dark/texture_07.png`
+    - `addons/ACore/ACore.Dev/Textures/Grids/Orange/texture_05.png`
 
 ## Common Issues
 

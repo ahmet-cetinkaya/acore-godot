@@ -95,10 +95,12 @@ _direction = MathfExtensions.Lerp(
 ```
 
 To make movement more responsive:
+
 - Increase `LerpSpeed` (default: 10.0)
 - Set closer to 20.0 for snappy movement
 
 To make movement smoother:
+
 - Decrease `LerpSpeed`
 - Set closer to 5.0 for floaty movement
 
@@ -277,9 +279,9 @@ The Player system integrates with Godot's AnimationTree. Set up your AnimationTr
 
 1. Create an AnimationTree node as a child of Player
 2. Add these blend spaces:
-   - `LeanBlend` (-1: left, 0: center, 1: right)
-   - `LeanLeftCollisionBlend` (0: no collision, 1: collision)
-   - `LeanRightCollisionBlend` (0: no collision, 1: collision)
+    - `LeanBlend` (-1: left, 0: center, 1: right)
+    - `LeanLeftCollisionBlend` (0: no collision, 1: collision)
+    - `LeanRightCollisionBlend` (0: no collision, 1: collision)
 
 3. Reference it in the Player's `AnimationTree` property
 
@@ -335,6 +337,7 @@ private float _gravity = 20.0f; // Override default
 ```
 
 Or modify project-wide:
+
 - **Project → Project Settings → Physics → 3D → Default Gravity**: 9.8
 
 ### Collision Layers

@@ -29,12 +29,12 @@ providing reusable and optimized solutions tailored for Godot projects.
 
 - **Player System** (`src/ACore.Player/`): Comprehensive 3D player controller
   with modular features:
-  - **Movement** (`Movement/`): First-person movement with WASD controls,
-    sprinting, crouching, and lean mechanics
-  - **Interaction** (`Interaction/`): Raycast-based interaction system with
-    `IInteractable` abstraction
-  - **Grabbing** (`Grabbing/`): Physics-based object grabbing and throwing
-    mechanics
+    - **Movement** (`Movement/`): First-person movement with WASD controls,
+      sprinting, crouching, and lean mechanics
+    - **Interaction** (`Interaction/`): Raycast-based interaction system with
+      `IInteractable` abstraction
+    - **Grabbing** (`Grabbing/`): Physics-based object grabbing and throwing
+      mechanics
 - **Math Extensions** (`src/ACore.Math/`): Utility methods for common math
   operations including Vector2 and Vector3 linear interpolation
 - **Dev Assets** (`src/ACore.Dev/Textures/Grids`): Development textures and grid
@@ -61,16 +61,16 @@ dotnet tool restore
 
 The project includes several convenient scripts defined in `global.json`:
 
-| Script | Description |
-|--------|-------------|
-| `dotnet r build` | Build the solution |
-| `dotnet r clean` | Clean build artifacts |
-| `dotnet r rebuild` | Clean and rebuild |
-| `dotnet r test` | Run tests |
-| `dotnet r format` | Format all files (shell, markdown, yaml, json, C#) |
-| `dotnet r godot` | Open Godot |
-| `dotnet r godot:editor` | Open Godot editor |
-| `dotnet r godot:run` | Run project in Godot |
+| Script                  | Description                                        |
+| ----------------------- | -------------------------------------------------- |
+| `dotnet r build`        | Build the solution                                 |
+| `dotnet r clean`        | Clean build artifacts                              |
+| `dotnet r rebuild`      | Clean and rebuild                                  |
+| `dotnet r test`         | Run tests                                          |
+| `dotnet r format`       | Format all files (shell, markdown, yaml, json, C#) |
+| `dotnet r godot`        | Open Godot                                         |
+| `dotnet r godot:editor` | Open Godot editor                                  |
+| `dotnet r godot:run`    | Run project in Godot                               |
 
 ### Installation as a Submodule
 
@@ -78,21 +78,21 @@ To add this repository as a submodule to your Godot project:
 
 1. Navigate to your project directory:
 
-   ```bash
-   cd your-godot-project
-   ```
+    ```bash
+    cd your-godot-project
+    ```
 
 2. Add the submodule:
 
-   ```bash
-   git submodule add https://github.com/ahmet-cetinkaya/acore-godot.git packages/acore-godot
-   ```
+    ```bash
+    git submodule add https://github.com/ahmet-cetinkaya/acore-godot.git packages/acore-godot
+    ```
 
 3. Initialize and update the submodule:
 
-   ```bash
-   git submodule update --init --recursive
-   ```
+    ```bash
+    git submodule update --init --recursive
+    ```
 
 4. Enable the AutoLoad script or attach the Player scene to your project
    depending on your needs.
@@ -106,10 +106,10 @@ controller. To use it:
 
 1. Drag the `Player.tscn` scene into your main scene
 2. Configure input actions in your project's Input Map:
-   - `move_forward`, `move_backward`, `move_left`, `move_right`
-   - `sprint`, `crouch`
-   - `lean_left`, `lean_right`
-   - `interact`, `grab`
+    - `move_forward`, `move_backward`, `move_left`, `move_right`
+    - `sprint`, `crouch`
+    - `lean_left`, `lean_right`
+    - `interact`, `grab`
 
 ### Interaction System
 

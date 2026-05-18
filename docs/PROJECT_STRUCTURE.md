@@ -60,6 +60,7 @@ The player controller system provides a modular 3D first-person controller with:
 - **Grabbing** - Physics-based object pickup, carry, and throwing
 
 **Key Files:**
+
 - `Player.cs` - Main player class orchestrating all systems
 - `Player.Movement.cs` - Core movement physics and input handling
 - `Player.Movement.Lean.cs` - Leaning mechanic with AnimationTree integration
@@ -71,6 +72,7 @@ The player controller system provides a modular 3D first-person controller with:
 Mathematical utility extensions for Godot.
 
 **Key Files:**
+
 - `MathfExtensions.cs` - Vector2 and Vector3 linear interpolation methods
 
 ### ACore.Dev
@@ -78,6 +80,7 @@ Mathematical utility extensions for Godot.
 Development assets for prototyping and debugging.
 
 **Contents:**
+
 - Grid textures (Dark and Orange variants)
 
 ### ACore.Environment
@@ -85,6 +88,7 @@ Development assets for prototyping and debugging.
 Environment assets for scene lighting and atmosphere.
 
 **Contents:**
+
 - HDR skybox textures (kloofendal cloudy sky)
 
 ## Scene Hierarchy

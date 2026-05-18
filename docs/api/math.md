@@ -20,6 +20,7 @@ public static Vector3 Lerp(Vector3 from, Vector3 to, float weight)
 Linearly interpolates between two `Vector3` values.
 
 **Parameters:**
+
 - `from` (`Vector3`): Starting vector
 - `to` (`Vector3`): Target vector
 - `weight` (`float`): Interpolation weight (0.0 = from, 1.0 = to)
@@ -27,6 +28,7 @@ Linearly interpolates between two `Vector3` values.
 **Returns:** `Vector3` - Interpolated vector
 
 **Example:**
+
 ```csharp
 Vector3 a = new Vector3(0, 0, 0);
 Vector3 b = new Vector3(10, 10, 10);
@@ -44,6 +46,7 @@ public static Vector2 Lerp(Vector2 from, Vector2 to, float weight)
 Linearly interpolates between two `Vector2` values.
 
 **Parameters:**
+
 - `from` (`Vector2`): Starting vector
 - `to` (`Vector2`): Target vector
 - `weight` (`float`): Interpolation weight (0.0 = from, 1.0 = to)
@@ -51,6 +54,7 @@ Linearly interpolates between two `Vector2` values.
 **Returns:** `Vector2` - Interpolated vector
 
 **Example:**
+
 ```csharp
 Vector2 a = new Vector2(0, 0);
 Vector2 b = new Vector2(100, 100);
